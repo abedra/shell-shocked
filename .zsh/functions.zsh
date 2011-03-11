@@ -18,6 +18,16 @@ function crypted_truths {
     /usr/bin/truecrypt -t -k "" --protect-hidden=no ~/Documents/work ~/src/relevance
 }
 
+function make_clojure_dev {
+    mkdir -p ~/src/opensource/clojure
+    cd ~/src/opensource/clojure
+    git clone git://github.com/clojure/clojure
+    git clone git@github.com:clojure/clojure-contrib.git
+    git clone git@github.com:clojure/tools.logging
+    cd clojure
+    mvn package
+}
+
 function extract {
     echo Extracting $1 ...
     if [ -f $1 ] ; then
