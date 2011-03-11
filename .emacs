@@ -135,7 +135,7 @@
 
 (defun clojure-repl ()
   (interactive)
-  (inferior-lisp "java -jar /Users/stuart/src/clojure/clojure/target/clojure-1.3.0-master-SNAPSHOT.jar"))
+  (inferior-lisp "java -jar /home/abedra/src/opensource/clojure/clojure/target/clojure-1.3.0-master-SNAPSHOT.jar"))
 
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
 
