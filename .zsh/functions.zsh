@@ -16,7 +16,6 @@ function zsh_recompile() {
 
 function crypted_truths {
     /usr/bin/truecrypt -t -k "" --protect-hidden=no ~/Documents/work ~/src/relevance
-    /usr/bin/truecrypt -t -k "" --protect-hidden=no ~/src/relevance/relevance_it/passwords2.tc
 }
 
 function extract {
