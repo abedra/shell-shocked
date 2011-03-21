@@ -34,11 +34,6 @@
   '(define-key paredit-mode-map (kbd "M-)") 'paredit-forward-slurp-sexp))
 
 (add-to-list 'auto-mode-alist '("\\.zsh$" . shell-script-mode))
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; EXPERIMENTAL SECTION
-(require 'erlang-start)
-(setq load-path (cons "~/src/opensource/kpm-list" load-path))
-(require 'kpm-list)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; INFERIOR LISP
