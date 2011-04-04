@@ -1,4 +1,4 @@
-export PATH=/usr/local/bin:~/src/opensource/etc/scripts:~/eclipse:~/src/opensource/android-sdk-linux_86/tools:$PATH
+export PATH=/usr/local/bin:~/src/opensource/etc/scripts:~/eclipse:~/src/opensource/android-sdk-linux_x86/tools:$PATH
 export CDPATH=.:~/src:~/src/personal:~/src/opensource:~/src/relevance:~/src/configs:~/Documents:~/src/security
 
 export JAVA_HOME=/usr/lib/jvm/java-6-sun
