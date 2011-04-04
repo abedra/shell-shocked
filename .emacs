@@ -34,6 +34,10 @@
   '(define-key paredit-mode-map (kbd "M-)") 'paredit-forward-slurp-sexp))
 
 (add-to-list 'auto-mode-alist '("\\.zsh$" . shell-script-mode))
+(setq x-select-enable-clipboard t)
+
+(require 'kpm-list)
+(require 'htmlize) 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; INFERIOR LISP
