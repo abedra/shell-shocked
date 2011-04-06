@@ -23,6 +23,9 @@
 
 (setq inhibit-startup-message t)
 
+;; Fix flyspell error for Ubuntu 10.10
+(setq flyspell-issue-welcome-flag nil)
+
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
