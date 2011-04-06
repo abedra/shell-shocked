@@ -36,8 +36,37 @@
 (add-to-list 'auto-mode-alist '("\\.zsh$" . shell-script-mode))
 (setq x-select-enable-clipboard t)
 
+(defun untabify-buffer ()
+  (interactive)
+  (untabify (point-min) (point-max)))
+
+(defun indent-buffer ()
+  (interactive)
+  (indent-region (point-min) (point-max)))
+
+(defun cleanup-buffer ()
+  "Perform a bunch of operations on the whitespace content of a buffer."
+  (interactive)
+  (indent-buffer)
+  (untabify-buffer)
+  (delete-trailing-whitespace))
+
+(global-set-key (kbd "C-c n") 'cleanup-buffer)
+
 (require 'kpm-list)
 (require 'htmlize) 
+
+(defun annotate-audits ()
+  "put fringe marker on AUDIT: lines in the curent buffer"
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (while (re-search-forward "AUDIT:" nil t)
+      (let ((overlay (make-overlay (- (point) 5) (point))))
+        (overlay-put overlay 'before-string (propertize "A"
+                                                        'display '(left-fringe right-triangle)))))))
+
+(add-hook 'find-file-hooks 'annotate-audits)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; INFERIOR LISP
