@@ -18,6 +18,7 @@
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 (ansi-color-for-comint-mode-on)
+(custom-set-variables '(slime-net-coding-system (quote utf-8-unix)))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -70,6 +71,14 @@
                                                         'display '(left-fringe right-triangle)))))))
 
 (add-hook 'find-file-hooks 'annotate-audits)
+
+(defun cleanup-region (beg end)
+  "Remove tmux artifacts from region."
+  (interactive "r")
+  (dolist (re '("\\\\│\·*\n" "\W*│\·*"))
+    (replace-regexp re "" nil beg end)))
+
+(global-set-key (kbd "C-x M-t") 'cleanup-region)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; INFERIOR LISP
