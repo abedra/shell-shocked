@@ -80,6 +80,9 @@
 
 (global-set-key (kbd "C-x M-t") 'cleanup-region)
 
+(define-key global-map (kbd "C-+") 'text-scale-increase)
+(define-key global-map (kbd "C--") 'text-scale-decrease)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; INFERIOR LISP
 (setq inferior-lisp-program "script/repl")
