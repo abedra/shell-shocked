@@ -8,6 +8,8 @@
      (expand-file-name "~/.emacs.d/elpa/package.el"))
   (package-initialize))
 
+(setenv "JAVA_HOME" "/usr/lib/jvm/java-6-sun")
+
 (push "~/.emacs.d" load-path)
 
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
@@ -59,6 +61,10 @@
 
 (require 'kpm-list)
 (require 'htmlize) 
+
+(require 'pragprog)
+(global-set-key (kbd "C-c C-c b") 'pragprog-build-book)
+(global-set-key (kbd "C-c C-c c") 'pragprog-build-chapter)
 
 (defun annotate-audits ()
   "put fringe marker on AUDIT: lines in the curent buffer"
@@ -188,3 +194,14 @@
 (when (window-system)
   (load-library "color-theme-blackboard")
   (add-hook 'after-init-hook 'color-theme-blackboard))
+
+
+;;; This was installed by package-install.el.
+;;; This provides support for the package system and
+;;; interfacing with ELPA, the package archive.
+;;; Move this code earlier if you want to reference
+;;; packages in your .emacs.
+(when
+    (load
+     (expand-file-name "~/.emacs.d/elpa/package.el"))
+  (package-initialize))
