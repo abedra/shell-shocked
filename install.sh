@@ -23,4 +23,4 @@ link_with_backup .emacs.d
 link_with_backup .emacs
 install_elpa
 install_org_mode
-
+install solarized

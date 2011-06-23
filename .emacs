@@ -192,9 +192,9 @@
 ;; Colors
 
 (when (window-system)
-  (load-library "color-theme-blackboard")
-  (add-hook 'after-init-hook 'color-theme-blackboard))
-
+  (push "~/.emacs.d/solarized" load-path)
+  (require 'color-theme-solarized)
+  (color-theme-solarized-light))
 
 ;;; This was installed by package-install.el.
 ;;; This provides support for the package system and

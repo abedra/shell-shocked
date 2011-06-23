@@ -26,3 +26,7 @@ function install_org_mode {
     make
     popd
 }
+
+function install_solarized {
+    git clone https://github.com/sellout/emacs-color-theme-solarized.git ~/.emacs.d/solarized
+}

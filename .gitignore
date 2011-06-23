@@ -2,5 +2,6 @@
 .emacs.d/auto-save-list
 .emacs.d/elpa
 .emacs.d/org-mode
+.emacs.d/solarized
 *.zwc
 .zsh/cache
