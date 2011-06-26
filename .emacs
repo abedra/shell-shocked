@@ -1,93 +1,90 @@
-;;; This was installed by package-install.el.p
-;;; This provides support for the package system and
-;;; interfacing with ELPA, the package archive.
-;;; Move this code earlier if you want to reference
-;;; packages in your .emacs.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ELPA
 (when
     (load
      (expand-file-name "~/.emacs.d/elpa/package.el"))
   (package-initialize))
 
-(setenv "JAVA_HOME" "/usr/lib/jvm/java-6-sun")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; STARTUP OPTIONS
+(defalias 'yes-or-no-p 'y-or-n-p)
+(setq inhibit-startup-message t)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; PATH
+(setenv "JAVA_HOME" "/usr/lib/jvm/java-6-sun")
 (push "~/.emacs.d" load-path)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; MENU/TOOL/SCROLL BAR OPTIONS
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
-(ansi-color-for-comint-mode-on)
-(custom-set-variables '(slime-net-coding-system (quote utf-8-unix)))
-
-(defalias 'yes-or-no-p 'y-or-n-p)
-
-(setq inhibit-startup-message t)
-
-;; Fix flyspell error for Ubuntu 10.10
-(setq flyspell-issue-welcome-flag nil)
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; TEMP FILE LOCATION
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; UTF-8 OPTIONS
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+(custom-set-variables '(slime-net-coding-system (quote utf-8-unix)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; IDO
+(require 'ido)
+(ido-mode t)
+(setq ido-enable-flex-matching t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; LINE NUMBERS
+(require 'linum)
+(global-linum-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; SMEX
+(require 'smex)
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; SHOW PARENS
+(show-paren-mode 1)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; FLYSPELL HACKS
+(setq flyspell-issue-welcome-flag nil)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; MISC
+(ansi-color-for-comint-mode-on)
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b"))))
-
-(eval-after-load 'paredit
-  ;; need a binding that works in the terminal
-  '(define-key paredit-mode-map (kbd "M-)") 'paredit-forward-slurp-sexp))
-
 (add-to-list 'auto-mode-alist '("\\.zsh$" . shell-script-mode))
 (setq x-select-enable-clipboard t)
 
-(defun untabify-buffer ()
-  (interactive)
-  (untabify (point-min) (point-max)))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; HTMLIZE
+(require 'htmlize)
 
-(defun indent-buffer ()
-  (interactive)
-  (indent-region (point-min) (point-max)))
-
-(defun cleanup-buffer ()
-  "Perform a bunch of operations on the whitespace content of a buffer."
-  (interactive)
-  (indent-buffer)
-  (untabify-buffer)
-  (delete-trailing-whitespace))
-
-(global-set-key (kbd "C-c n") 'cleanup-buffer)
-
-(require 'kpm-list)
-(require 'htmlize) 
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; PRAGMATIC MARKUP LANGUAGE
 (require 'pragprog)
 (global-set-key (kbd "C-c C-c b") 'pragprog-build-book)
 (global-set-key (kbd "C-c C-c c") 'pragprog-build-chapter)
 
-(defun annotate-audits ()
-  "put fringe marker on AUDIT: lines in the curent buffer"
-  (interactive)
-  (save-excursion
-    (goto-char (point-min))
-    (while (re-search-forward "AUDIT:" nil t)
-      (let ((overlay (make-overlay (- (point) 5) (point))))
-        (overlay-put overlay 'before-string (propertize "A"
-                                                        'display '(left-fringe right-triangle)))))))
-
-(add-hook 'find-file-hooks 'annotate-audits)
-
-(defun cleanup-region (beg end)
-  "Remove tmux artifacts from region."
-  (interactive "r")
-  (dolist (re '("\\\\│\·*\n" "\W*│\·*"))
-    (replace-regexp re "" nil beg end)))
-
-(global-set-key (kbd "C-x M-t") 'cleanup-region)
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; FONT SIZE TOOLS
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; KPM LIST MODE
+(require 'kpm-list)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; INFERIOR LISP
@@ -109,35 +106,39 @@
      (when (not window-system)
        (set-face-background 'magit-item-highlight "white"))))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; IDO
-(require 'ido)
-(ido-mode t)
-(setq ido-enable-flex-matching t)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; SMEX
-(require 'smex)
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; LINE NUMBERS
-(require 'linum)
-(global-linum-mode)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; LEININGEN MODE
 (require 'elein)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; ANDROID MODE 
+;; ANDROID MODE
 (require 'android-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Show Parens
-(show-paren-mode 1)
+;; BUFFER CLEAN UP
+(defun untabify-buffer ()
+  (interactive)
+  (untabify (point-min) (point-max)))
+
+(defun indent-buffer ()
+  (interactive)
+  (indent-region (point-min) (point-max)))
+
+(defun cleanup-buffer ()
+  "Perform a bunch of operations on the whitespace content of a buffer."
+  (interactive)
+  (indent-buffer)
+  (untabify-buffer)
+  (delete-trailing-whitespace))
+
+(defun cleanup-region (beg end)
+  "Remove tmux artifacts from region."
+  (interactive "r")
+  (dolist (re '("\\\\│\·*\n" "\W*│\·*"))
+    (replace-regexp re "" nil beg end)))
+
+(global-set-key (kbd "C-x M-t") 'cleanup-region)
+(global-set-key (kbd "C-c n") 'cleanup-buffer)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ORG MODE
@@ -163,45 +164,26 @@
      (require 'paredit)
      (defun clojure-paredit-hook () (paredit-mode +1))
      (add-hook 'clojure-mode-hook 'clojure-paredit-hook)
-     
      (define-key clojure-mode-map "{" 'paredit-open-brace)
-     (define-key clojure-mode-map "}" 'paredit-close-brace)
-
-     ;; Custom indentation rules; see clojure-indent-function
-     (define-clojure-indent
-       (describe 'defun)
-       (testing 'defun)
-       (given 'defun)
-       (using 'defun)
-       (with 'defun)
-       (it 'defun)
-       (do-it 'defun))))
+     (define-key clojure-mode-map "}" 'paredit-close-brace)))
 
 (eval-after-load 'slime
   '(setq slime-protocol-version 'ignore))
 
-(require 'elein)
+(eval-after-load 'paredit
+  ;; need a binding that works in the terminal
+  '(define-key paredit-mode-map (kbd "M-)") 'paredit-forward-slurp-sexp))
 
 (defun clojure-repl ()
   (interactive)
   (inferior-lisp "java -jar /home/abedra/src/opensource/clojure/clojure/target/clojure-1.3.0-master-SNAPSHOT.jar"))
 
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Colors
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; COLOR THEME
+(push "~/.emacs.d/solarized" load-path)
+(require 'color-theme-solarized)
 (when (window-system)
-  (push "~/.emacs.d/solarized" load-path)
-  (require 'color-theme-solarized)
   (color-theme-solarized-light))
-
-;;; This was installed by package-install.el.
-;;; This provides support for the package system and
-;;; interfacing with ELPA, the package archive.
-;;; Move this code earlier if you want to reference
-;;; packages in your .emacs.
-(when
-    (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
-  (package-initialize))
