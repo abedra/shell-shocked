@@ -145,6 +145,7 @@
 (push "~/.emacs.d/org-mode/lisp" load-path)
 (push "~/.emacs.d/org-mode/contrib/lisp" load-path)
 (require 'org-install)
+(define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 (setq org-agenda-files (list "~/notes/relevance.org"
                              "~/notes/personal.org"
