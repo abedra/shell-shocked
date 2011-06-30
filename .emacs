@@ -147,6 +147,11 @@
 (require 'org-install)
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
+(setq org-todo-keywords
+  '((sequence "TODO" "INPR" "WAITING" "DONE")))
+(setq org-todo-keyword-faces
+  '(("INPR" . (:background "green" :foreground "white" :weight bold))
+    ("WAITING" . (:foreground "orange" :weight bold))))
 (setq org-agenda-files (list "~/notes/relevance.org"
                              "~/notes/personal.org"
                              "~/notes/clojure.org"
