@@ -188,6 +188,12 @@
 (add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; MARKDOWN MODE HOOKS
+
+(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; COLOR THEME
 (push "~/.emacs.d/solarized" load-path)
 (require 'color-theme-solarized)
