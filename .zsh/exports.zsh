@@ -4,6 +4,7 @@ export CDPATH=.:~/src:~/src/personal:~/src/opensource:~/src/relevance:~/src/conf
 export JAVA_HOME=/usr/lib/jvm/java-6-sun
 export JDK_HOME=/usr/lib/jvm/java-6-sun
 export CLOJURE_HOME=~/src/opensource/clojure
+export FLEX_HOME=~/flex
 
 # Setup terminal, and turn on colors
 export TERM=xterm-color
