@@ -76,6 +76,7 @@
 (require 'pragprog)
 (global-set-key (kbd "C-c C-c b") 'pragprog-build-book)
 (global-set-key (kbd "C-c C-c c") 'pragprog-build-chapter)
+(add-to-list 'auto-mode-alist '("\\.pml$" . nxml-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; FONT SIZE TOOLS
