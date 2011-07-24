@@ -89,7 +89,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; INFERIOR LISP
-(setq inferior-lisp-program "script/repl")
+;;(setq inferior-lisp-program "script/repl")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; MAGIT
@@ -161,6 +161,22 @@
 (setq org-mobile-files (quote ("~/notes/days")))
 (setq org-mobile-inbox-for-pull "~/notes/days/flagged.org")
 (setq org-mobile-directory "~/Dropbox/MobileOrg")
+
+(require 'ob)
+(add-to-list 'org-babel-tangle-lang-exts '("clojure" . "clj"))
+
+(defvar org-babel-default-header-args:clojure 
+  '((:results . "silent") (:tangle . "yes")))
+
+(defun org-babel-execute:clojure (body params)
+  "Evaluate a block of Clojure code with Babel."
+  (lisp-eval-string body)
+  "Done!")
+
+(provide 'ob-clojure)
+
+(setq org-src-fontify-natively t)
+(setq org-confirm-babel-evaluate nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; CLOJURE
