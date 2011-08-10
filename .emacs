@@ -15,6 +15,11 @@
 (setenv "JAVA_HOME" "/usr/lib/jvm/java-6-sun")
 (push "~/.emacs.d" load-path)
 
+(require 'php-mode)
+(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; MENU/TOOL/SCROLL BAR OPTIONS
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
