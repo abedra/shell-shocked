@@ -81,6 +81,7 @@
 (require 'pragprog)
 (global-set-key (kbd "C-c C-c b") 'pragprog-build-book)
 (global-set-key (kbd "C-c C-c c") 'pragprog-build-chapter)
+(add-to-list 'auto-mode-alist '("\\.pml$" . nxml-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; FONT SIZE TOOLS
@@ -93,7 +94,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; INFERIOR LISP
-(setq inferior-lisp-program "script/repl")
+;;(setq inferior-lisp-program "script/repl")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; MAGIT
@@ -166,6 +167,22 @@
 (setq org-mobile-inbox-for-pull "~/notes/days/flagged.org")
 (setq org-mobile-directory "~/Dropbox/MobileOrg")
 
+(require 'ob)
+(add-to-list 'org-babel-tangle-lang-exts '("clojure" . "clj"))
+
+(defvar org-babel-default-header-args:clojure 
+  '((:results . "silent") (:tangle . "yes")))
+
+(defun org-babel-execute:clojure (body params)
+  "Evaluate a block of Clojure code with Babel."
+  (lisp-eval-string body)
+  "Done!")
+
+(provide 'ob-clojure)
+
+(setq org-src-fontify-natively t)
+(setq org-confirm-babel-evaluate nil)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; CLOJURE
 (autoload 'clojure-mode "clojure-mode" nil t)
@@ -191,6 +208,19 @@
 
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; MARKDOWN MODE HOOKS
+
+(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; RUBY HOOKS
+(defun create-tags-table nil
+  (interactive)
+  (shell-command "etags -e -a --Ruby-kinds=-fFcm -o TAGS -R ."))
+(global-set-key (kbd "C-c C-c t") 'create-tags-table)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; COLOR THEME
