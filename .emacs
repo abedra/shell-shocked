@@ -211,6 +211,13 @@
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; RUBY HOOKS
+(defun create-tags-table nil
+  (interactive)
+  (shell-command "etags -e -a --Ruby-kinds=-fFcm -o TAGS -R ."))
+(global-set-key (kbd "C-c C-c t") 'create-tags-table)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; COLOR THEME
 (push "~/.emacs.d/solarized" load-path)
 (require 'color-theme-solarized)
