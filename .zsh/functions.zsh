@@ -73,3 +73,11 @@ function sg {
         script/generate $@
     fi
 }
+
+function rake {
+    if [ -e .bundle ]; then
+	bundle exec rake $@
+    else
+	rake $@
+    fi	
+}
