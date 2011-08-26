@@ -18,12 +18,45 @@ function crypted_truths {
     /usr/bin/truecrypt -t -k "" --protect-hidden=no ~/Documents/work ~/src/relevance
 }
 
+function clone_clojure_repo {
+    git clone git@github.com:clojure/$1
+}
+
 function make_clojure_dev {
     mkdir -p ~/src/opensource/clojure
     cd ~/src/opensource/clojure
     git clone git://github.com/clojure/clojure
-    git clone git@github.com:clojure/clojure-contrib.git
-    git clone git@github.com:clojure/tools.logging
+    clone_clojure_repo clojure-contrib
+    clone_clojure_repo algo.generic
+    clone_clojure_repo algo.monads
+    clone_clojure_repo build.poms
+    clone_clojure_repo clojure.github.com
+    clone_clojure_repo core.incubator
+    clone_clojure_repo core.logic
+    clone_clojure_repo core.unify
+    clone_clojure_repo data.csv
+    clone_clojure_repo data.enlive
+    clone_clojure_repo data.finger-tree
+    clone_clojure_repo data.json
+    clone_clojure_repo data.priority-map
+    clone_clojure_repo data.xml
+    clone_clojure_repo data.zip
+    clone_clojure_repo io.incubator
+    clone_clojure_repo java.classpath
+    clone_clojure_repo java.data
+    clone_clojure_repo java.internal.invoke
+    clone_clojure_repo java.jmx
+    clone_clojure_repo java.jdbc
+    clone_clojure_repo math.combinatorics
+    clone_clojure_repo math.numeric-tower
+    clone_clojure_repo net.ring
+    clone_clojure_repo test.benchmark
+    clone_clojure_repo test.generative
+    clone_clojure_repo tools.cli
+    clone_clojure_repo tools.logging
+    clone_clojure_repo tools.macro
+    clone_clojure_repo tools.namespace
+    clone_clojure_repo tools.nrepl
     cd clojure
     mvn package
 }
