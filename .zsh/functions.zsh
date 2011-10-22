@@ -25,7 +25,8 @@ function clone_clojure_repo {
 function make_clojure_dev {
     mkdir -p ~/src/opensource/clojure
     cd ~/src/opensource/clojure
-    git clone git://github.com/clojure/clojure
+    clone_clojure_repo clojure
+    clone_clojure_repo clojurescript
     clone_clojure_repo clojure-contrib
     clone_clojure_repo algo.generic
     clone_clojure_repo algo.monads
