@@ -1,0 +1,48 @@
+((("menu-bar-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0])
+  ("diff" .
+   [1 0 0 0])
+  ("recentf-mode" .
+   [0 0 0 0 0 0 0 1 0 0 0 0])
+  ("auto-compression-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("show-paren-mode" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("delete-selection-mode" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("y-or-n-p" .
+   [0 0 1 0 0 0 0 0])
+  ("yes-or-no-p" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("fset" .
+   [1 0 0 0])
+  ("indent-tabs-mode" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("tab-width" .
+   [0 0 0 0 0 0 1 0 0])
+  ("nil" .
+   [2 0 0])
+  ("make-backup-files" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("x-select-enable-clipboard" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("line-number-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("column-number-mode" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("when" .
+   [1 0 0 0])
+  ("bound" .
+   [0 0 0 0 1])
+  ("tool-bar-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 1])
+  ("global-linum-mode" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("setq" .
+   [6 0 0 0])
+  ("linum-format" .
+   [0 0 0 0 0 0 0 0 0 1 0 0])
+  ("visible-bell" .
+   [0 0 0 0 0 0 0 0 0 1 0 0])
+  ("ido-mode" .
+   [1 0 0 0 0 0 0 0])))
