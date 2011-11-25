@@ -2,3 +2,5 @@
 *.zwc
 .zsh/cache
 .emacs.d/el-get
+.emacs.d/ido.last
+.emacs.d/ac-comphist.dat
