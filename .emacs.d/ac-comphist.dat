@@ -1,5 +1,45 @@
-((("menu-bar-mode" .
-   [0 0 0 0 0 0 0 0 0 0 0 1 0])
+((("kpm-list" .
+   [0 0 0 1 0 0 0 0])
+  ("smex-major-mode-commands" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("smex-initialize" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("lambda" .
+   [0 0 0 0 2 1])
+  (":after" .
+   [2 0 0 0 0 0])
+  ("elpa" .
+   [1 0 0 0])
+  (":type" .
+   [3 0 0 0 0])
+  ("smex" .
+   [2 0 0 0])
+  ("set-frame-font" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("window-system" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("window" .
+   [0 0 0 0 0 1])
+  ("magit" .
+   [0 0 0 0 1])
+  ("ispell" .
+   [0 0 0 0 0 1])
+  ("grep-find-use-xargs" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("progn" .
+   [1 0 0 0 1])
+  ("darwin" .
+   [1 0 0 0 0 0])
+  ("system-type" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("eq" .
+   [1 0])
+  ("kbd" .
+   [4 0 0])
+  ("global-set-key" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 3])
+  ("menu-bar-mode" .
+   [0 0 0 0 0 1 0 0 0 0 0 1 0])
   ("diff" .
    [1 0 0 0])
   ("recentf-mode" .
@@ -21,7 +61,7 @@
   ("tab-width" .
    [0 0 0 0 0 0 1 0 0])
   ("nil" .
-   [2 0 0])
+   [3 0 0])
   ("make-backup-files" .
    [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
   ("x-select-enable-clipboard" .
@@ -31,7 +71,7 @@
   ("column-number-mode" .
    [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
   ("when" .
-   [1 0 0 0])
+   [5 0 0 0])
   ("bound" .
    [0 0 0 0 1])
   ("tool-bar-mode" .
@@ -39,10 +79,62 @@
   ("global-linum-mode" .
    [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
   ("setq" .
-   [6 0 0 0])
+   [11 0 0 0])
   ("linum-format" .
    [0 0 0 0 0 0 0 0 0 1 0 0])
   ("visible-bell" .
    [0 0 0 0 0 0 0 0 0 1 0 0])
   ("ido-mode" .
-   [1 0 0 0 0 0 0 0])))
+   [1 0 0 0 0 0 0 0])
+  ("require" .
+   [1 0 0 1 0 0 0])
+  ("options" .
+   [2 0 0 0 0 0 0])
+  ("provide" .
+   [0 0 0 0 0 0 2])
+  ("defcustom" .
+   [0 0 0 0 0 1 0 0 0])
+  ("exec-path" .
+   [0 0 0 0 0 0 1 0 0])
+  ("string" .
+   [1 0 0 0 0 0])
+  ("defun" .
+   [1 0 0 0 0])
+  ("push" .
+   [1 0 0 0])
+  ("add-to-list" .
+   [0 0 0 0 0 0 1 0 0 0 1])
+  ("load-path" .
+   [1 0 0 0 0 0 0 0 0])
+  ("functions" .
+   [0 0 0 0 0 0 0 0 1])
+  ("flyspell" .
+   [0 0 0 0 0 0 0 1])
+  ("define-key" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("global-map" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("text-scale-increase" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("text-scale-decrease" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("inferior-lisp-program" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("diff-switches" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("set" .
+   [1 0 0])
+  ("auto-mode-alist" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("shell-script-mode" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  (":name" .
+   [1 0 0 0 0])
+  ("Git" .
+   [0 0 2])
+  (":url" .
+   [1 0 0 0])
+  ("def" .
+   [0 0 1])
+  ("after_create" .
+   [0 0 0 1 0 0 0 0 0 0 0 0])))
