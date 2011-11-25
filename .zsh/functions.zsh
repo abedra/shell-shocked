@@ -15,7 +15,7 @@ function zsh_recompile() {
 }
 
 function crypted_truths {
-    /usr/bin/truecrypt -t -k "" --protect-hidden=no ~/Documents/work ~/src/relevance
+    /Applications/TrueCrypt.app/Contents/MacOS/TrueCrypt -t -k "" --protect-hidden=no ~/Documents/work ~/src/relevance
 }
 
 function clone_clojure_repo {

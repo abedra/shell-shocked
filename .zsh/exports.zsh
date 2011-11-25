@@ -1,15 +1,14 @@
 export CDPATH=.:~/src:~/src/personal:~/src/opensource:~/src/relevance:~/src/configs:~/Documents:~/src/security
 
-export JAVA_HOME=/usr/lib/jvm/java-6-sun
-export JDK_HOME=/usr/lib/jvm/java-6-sun
+export JAVA_HOME=$(/usr/libexec/java_home)
+export JDK_HOME=$(/usr/libexec/java_home)
 export CLOJURE_HOME=~/src/opensource/clojure
 export CLOJURESCRIPT_HOME=~/src/opensource/clojure/clojurescript
-export FLEX_HOME=~/flex
 
-export PATH=/usr/local/bin:~/src/opensource/etc/scripts:~/eclipse:~/src/opensource/android-sdk-linux_x86/tools:$CLOJURESCRIPT_HOME/bin:$PATH
+export PATH=/usr/local/bin:~/src/opensource/etc/scripts:~/eclipse:~/src/opensource/android-sdk-linux_x86/tools:$CLOJURESCRIPT_HOME/bin:~/src/opensource/cljs-watch:$PATH
 
 # Setup terminal, and turn on colors
-export TERM=xterm-color
+export TERM=xterm-256color
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export CLICOLOR=1
 

@@ -1,3 +1,10 @@
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("5600dc0bb4a2b72a613175da54edb4ad770105aa" default))))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ELPA
 (when
@@ -12,13 +19,14 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; PATH
-(setenv "JAVA_HOME" "/usr/lib/jvm/java-6-sun")
+(setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
+(setenv "JAVA_HOME" "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home")
+(setenv "CLOJURESCRIPT_HOME" "/Users/abedra/src/opensource/clojure/clojurescript")
 (push "~/.emacs.d" load-path)
+(setq-default ispell-program-name "/usr/local/bin/aspell") 
 
 (require 'php-mode)
 (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
-
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; MENU/TOOL/SCROLL BAR OPTIONS
@@ -94,7 +102,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; INFERIOR LISP
-;;(setq inferior-lisp-program "script/repl")
+(setq inferior-lisp-program "script/repl")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; MAGIT
@@ -154,10 +162,10 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 (setq org-todo-keywords
-  '((sequence "TODO" "INPR" "WAITING" "DONE")))
+      '((sequence "TODO" "INPR" "WAITING" "DONE")))
 (setq org-todo-keyword-faces
-  '(("INPR" . (:background "green" :foreground "white" :weight bold))
-    ("WAITING" . (:foreground "orange" :weight bold))))
+      '(("INPR" . (:background "green" :foreground "white" :weight bold))
+        ("WAITING" . (:foreground "orange" :weight bold))))
 (setq org-agenda-files (list "~/notes/relevance.org"
                              "~/notes/personal.org"
                              "~/notes/clojure.org"
@@ -168,9 +176,14 @@
 (setq org-mobile-directory "~/Dropbox/MobileOrg")
 
 (require 'ob)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '( (sh . t)))
+
 (add-to-list 'org-babel-tangle-lang-exts '("clojure" . "clj"))
 
-(defvar org-babel-default-header-args:clojure 
+(defvar org-babel-default-header-args:clojure
   '((:results . "silent") (:tangle . "yes")))
 
 (defun org-babel-execute:clojure (body params)
@@ -183,6 +196,10 @@
 (setq org-src-fontify-natively t)
 (setq org-confirm-babel-evaluate nil)
 
+(require 'yasnippet-bundle)
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/snippets/")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; CLOJURE
 (autoload 'clojure-mode "clojure-mode" nil t)
@@ -193,7 +210,13 @@
      (defun clojure-paredit-hook () (paredit-mode +1))
      (add-hook 'clojure-mode-hook 'clojure-paredit-hook)
      (define-key clojure-mode-map "{" 'paredit-open-brace)
-     (define-key clojure-mode-map "}" 'paredit-close-brace)))
+     (define-key clojure-mode-map "}" 'paredit-close-brace)
+     
+     (define-clojure-indent
+       (defpage 'defun)
+       (defpartial 'defun)
+       (css-ns 'defun)
+       (css-file 'defun))))
 
 (eval-after-load 'slime
   '(setq slime-protocol-version 'ignore))
@@ -204,14 +227,14 @@
 
 (defun clojure-repl ()
   (interactive)
-  (inferior-lisp "java -jar /home/abedra/src/opensource/clojure/clojure/target/clojure-1.3.0-master-SNAPSHOT.jar"))
+  (inferior-lisp "java -jar /Users/abedra/src/opensource/clojure/clojure/clojure-1.4.0-master-SNAPSHOT.jar"))
 
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; MARKDOWN MODE HOOKS
-
+(require 'markdown-mode)
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 
@@ -224,7 +247,15 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; COLOR THEME
-(push "~/.emacs.d/solarized" load-path)
-(require 'color-theme-solarized)
-(when (window-system)
-  (color-theme-solarized-light))
+;; (when window-system
+;;     (progn
+;;       (add-to-list 'load-path "~/.emacs.d/solarized/")
+;;       (add-to-list 'custom-theme-load-path "~/.emacs.d/solarized")
+;;       (load-theme 'solarized-light)))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
