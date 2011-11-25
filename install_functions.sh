@@ -14,19 +14,3 @@ function link_with_backup {
     backup $TARGET
     ln -sf $SOURCE $TARGET
 }
-
-function install_elpa {
-    rm -rf $DOTFILES/.emacs.d/elpa
-    emacs --script $DOTFILES/install_elpa.el
-}
-
-function install_org_mode {
-    git clone git://orgmode.org/org-mode.git ~/.emacs.d/org-mode
-    pushd ~/.emacs.d/org-mode
-    make
-    popd
-}
-
-function install_solarized {
-    git clone https://github.com/sellout/emacs-color-theme-solarized.git ~/.emacs.d/solarized
-}
