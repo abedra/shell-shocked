@@ -28,7 +28,7 @@ function git_prompt_info() {
     gitstatus=' '
   fi
   if [[ -n $ref ]]; then
-    echo "%{$fg_bold[green]%}/${ref#refs/heads/}%{$reset_color%}$gitstatus$pairname"
+    echo "%{$fg_bold[green]%}/${ref#refs/heads/}%{$reset_color%}$gitstatus $pairname"
   fi
 }
 
