@@ -50,13 +50,21 @@
 	       :after (lambda ()
 			(smex-initialize)
 			(global-set-key (kbd "M-x") 'smex)
-			(global-set-key (kbd "M-X") 'smex-major-mode-commands)))))
+			(global-set-key (kbd "M-X") 'smex-major-mode-commands)))
+	(:name deft
+	       :type elpa
+	       :after (lambda ()
+			(setq deft-extension "org")
+			(setq deft-directory "~/Dropbox/deft")
+			(setq deft-text-mode 'org-mode)
+			(global-set-key [f3] 'deft)))))
 
 (setq my-packages
       (append
        '(ac-slime
 	 auto-complete
 	 coffee-mode
+	 deft
 	 elein
 	 el-get
 	 markdown-mode
