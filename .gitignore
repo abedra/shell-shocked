@@ -4,3 +4,6 @@
 .emacs.d/el-get
 .emacs.d/.ido.last
 .emacs.d/ac-comphist.dat
+.emacs.d/eshell/
+.emacs.d/swank/
+.emacs.d/url/
