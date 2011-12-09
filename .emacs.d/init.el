@@ -57,7 +57,11 @@
 			(setq deft-extension "org")
 			(setq deft-directory "~/Dropbox/deft")
 			(setq deft-text-mode 'org-mode)
-			(global-set-key [f3] 'deft)))))
+			(global-set-key [f3] 'deft)))
+	(:name rvm
+	       :type elpa
+	       :after (lambda ()
+			(rvm-use-default)))))
 
 (setq my-packages
       (append

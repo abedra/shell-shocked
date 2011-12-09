@@ -107,3 +107,7 @@ function sg {
         script/generate $@
     fi
 }
+
+function fetch_twitter_bootstrap {
+    curl -O https://raw.github.com/twitter/bootstrap/master/bootstrap.min.css
+}

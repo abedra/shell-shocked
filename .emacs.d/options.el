@@ -19,6 +19,21 @@
 (global-linum-mode 1)
 (setq linum-format "%d  ")
 
+;; standard diffs are horrible
+(autoload 'magit-status "magit" nil t)
+(setq diff-switches "-u -w"
+      magit-diff-options "-w")
+(eval-after-load 'diff-mode
+  '(progn
+     (set-face-foreground 'diff-added "green4")
+     (set-face-foreground 'diff-removed "red3")))
+(eval-after-load 'magit
+  '(progn
+     (set-face-foreground 'magit-diff-add "green3")
+     (set-face-foreground 'magit-diff-del "red3")
+     (when (not window-system)
+       (set-face-background 'magit-item-highlight "white"))))
+
 ;; tabs, spaces, and whitespace, oh my!
 (setq tab-width 2
       indent-tabs-mode nil)
@@ -83,7 +98,8 @@
 (setq org-agenda-files (list "~/notes/relevance.org"
                              "~/notes/personal.org"
                              "~/notes/clojure.org"
-                             "~/notes/songs.org"))
+                             "~/notes/music.org"
+			     "~/notes/books.org"))
 
 ;; org babel config
 (require 'ob)
@@ -111,6 +127,7 @@
 (when (eq system-type 'darwin)
   (progn
     (setq grep-find-use-xargs 'exec
+	  locate-command "mdfind"
 	  ispell-program-name "aspell"
 	  magit-git-executable "/usr/local/bin/git")))
 
