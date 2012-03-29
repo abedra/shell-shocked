@@ -4,7 +4,7 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 export JDK_HOME=$(/usr/libexec/java_home)
 export CLOJURE_HOME=~/src/opensource/clojure
 export CLOJURESCRIPT_HOME=~/src/opensource/clojure/clojurescript
-
+export ORG_HTML_SLIDESHOW_HOME=/Users/abedra/src/opensource/org-html-slideshow
 export PATH=/usr/local/bin:~/src/opensource/etc/scripts:~/eclipse:~/src/opensource/android-sdk-linux_x86/tools:$CLOJURESCRIPT_HOME/bin:~/src/opensource/cljs-watch:$PATH
 
 # Setup terminal, and turn on colors
@@ -18,3 +18,8 @@ export GREP_COLOR='3;33'
 
 export PAGER=most
 export EDITOR="emacs"
+
+export RUBY_HEAP_MIN_SLOTS=500000
+export RUBY_HEAP_SLOTS_INCREMENT=250000
+export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
+export RUBY_GC_MALLOC_LIMIT=50000000

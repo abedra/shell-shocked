@@ -60,6 +60,10 @@
 ;; inferior lisp
 (setq inferior-lisp-program "script/repl")
 
+;; inferior scheme
+(autoload 'run-scheme "petite" "Run an inferior Scheme" t)
+(setq scheme-program-name "petite")
+
 ;; take care of utf-8
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
