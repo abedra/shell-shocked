@@ -20,7 +20,6 @@ link_with_backup .zshrc
 
 # emacs
 link_with_backup .emacs.d
-link_with_backup .emacs
 
 # tmux
 link_with_backup .tmux.conf
