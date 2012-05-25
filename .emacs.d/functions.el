@@ -1,7 +1,7 @@
 ;; clojure repl fns
 (defun clojure-repl ()
   (interactive)
-  (inferior-lisp "java -jar /Users/abedra/src/opensource/clojure/clojure/clojure-1.4.0-master-SNAPSHOT.jar"))
+  (inferior-lisp "java -jar /Users/abedra/src/opensource/clojure/clojure/target/clojure-1.5.0-master-SNAPSHOT.jar"))
 
 ;; buffer clean up fns
 (defun untabify-buffer ()
@@ -30,7 +30,7 @@
 
 ;; vim style zap to character
 (defun zap-until-char (arg char)
-  "Kill up to ARGth occurrence of CHAR. Case is ignored 
+  "Kill up to ARGth occurrence of CHAR. Case is ignored
   if `case-fold-search' is non-nil in the current buffer.
   Goes backward if ARG is negative; error if CHAR not found."
   (interactive "p\ncZap until char: ")
@@ -43,6 +43,6 @@
                  (1- (point)))
                (backward-char)))
 
-(global-set-key (kbd "M-z") 'zap-until-char) 
+(global-set-key (kbd "M-z") 'zap-until-char)
 
 (provide 'functions)

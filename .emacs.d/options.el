@@ -2,6 +2,7 @@
 (setq inhibit-splash-screen t
       initial-scratch-message nil
       truncate-partial-width-windows nil)
+(setq-default show-trailing-whitespace t)
 
 (when (locate-library "clojure-mode")
   (setq initial-major-mode 'clojure-mode))
@@ -12,6 +13,7 @@
       ido-enable-flex-matching t
       ido-use-filename-at-point 'guess)
 (global-set-key (kbd "C-x f") 'recentf-ido-find-file)
+(global-set-key (kbd "C-t") 'find-file-in-project)
 
 ;; line numbers
 (line-number-mode 1)
@@ -95,16 +97,17 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 (setq org-todo-keywords
-      '((sequence "TODO" "INPR" "WAITING" "DONE")))
+      '((sequence "TODO" "INPROGRESS" "BLOCKED" "DONE")))
 (setq org-todo-keyword-faces
-      '(("INPR" . (:background "green" :foreground "white" :weight bold))
-        ("WAITING" . (:foreground "orange" :weight bold))))
-(setq org-agenda-files (list "~/notes/relevance.org"
+      '(("INPROGRESS" . (:foreground "blue" :weight bold))
+	("BLOCKED" .    (:background "red" :foreground "white" :weight bold))))
+(setq org-agenda-files (list "~/notes/groupon.org"
                              "~/notes/personal.org"
-                             "~/notes/clojure.org"
-                             "~/notes/music.org"
-			     "~/notes/books.org"))
+                             "~/notes/clojure.org"))
 
+(setq org-directory "~/notes")
+(setq org-mobile-inbox-for-pull "~/notes/flagged.org")
+(setq org-mobile-directory "~/Dropbox/MobileOrg")
 ;; org babel config
 (require 'ob)
 

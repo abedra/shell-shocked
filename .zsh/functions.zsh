@@ -109,5 +109,9 @@ function sg {
 }
 
 function fetch_twitter_bootstrap {
-    curl -O https://raw.github.com/twitter/bootstrap/master/bootstrap.min.css
+    curl -O http://twitter.github.com/bootstrap/assets/bootstrap.zip
+}
+
+function show_changes {
+    git blame $1 | grep -v 00000000 | awk '{print $1}' | uniq | xargs git show
 }

@@ -6,7 +6,7 @@ cd `dirname $0`
 export DOTFILES=`pwd`
 
 source $DOTFILES/install_functions.sh
- 
+
 # git
 link_with_backup .gitconfig
 
@@ -16,7 +16,7 @@ link_with_backup .railsrc
 
 # zsh
 link_with_backup .zsh
-link_with_backup .zshrc    
+link_with_backup .zshrc
 
 # emacs
 link_with_backup .emacs.d
