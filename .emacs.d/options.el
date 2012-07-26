@@ -137,4 +137,13 @@
 	  ispell-program-name "aspell"
 	  magit-git-executable "/usr/local/bin/git")))
 
+(defun coffee-custom ()
+  "coffee-mode-hook"
+
+  ;; CoffeeScript uses two spaces.
+  (make-local-variable 'tab-width)
+  (set 'tab-width 2))
+
+(add-hook 'coffee-mode-hook 'coffee-custom)
+
 (provide 'options)
