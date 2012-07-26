@@ -97,16 +97,15 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 (setq org-todo-keywords
-      '((sequence "TODO" "INPROGRESS" "BLOCKED" "DONE")))
+      '((sequence "TODO" "INPROGRESS" "DONE")))
 (setq org-todo-keyword-faces
-      '(("INPROGRESS" . (:foreground "blue" :weight bold))
-	("BLOCKED" .    (:background "red" :foreground "white" :weight bold))))
-(setq org-agenda-files (list "~/notes/groupon.org"
-                             "~/notes/personal.org"
-                             "~/notes/clojure.org"))
+      '(("INPROGRESS" . (:foreground "blue" :weight bold))))
+(setq org-agenda-files (list "~/Dropbox/org/groupon.org"
+			     "~/Dropbox/org/personal.org"
+			     "~/Dropbox/org/clojure.org"))
 
-(setq org-directory "~/notes")
-(setq org-mobile-inbox-for-pull "~/notes/flagged.org")
+(setq org-directory "~/Dropbox/org")
+(setq org-mobile-inbox-for-pull "~/Dropbox/org/flagged.org")
 (setq org-mobile-directory "~/Dropbox/MobileOrg")
 ;; org babel config
 (require 'ob)
