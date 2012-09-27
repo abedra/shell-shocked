@@ -1,0 +1,55 @@
+#!/bin/sh
+
+set -e
+
+echo "Checking for org-html-slideshow... \c"
+if [ -z $ORG_HTML_SLIDESHOW_HOME ]; then
+    echo "NO"
+    echo "Please set ORG_HTML_SLIDESHOW_HOME"
+    exit 1
+fi
+
+if [ ! -d $ORG_HTML_SLIDESHOW_HOME ]; then
+    echo "NO"
+    echo "Missing org-html-slideshow"
+    exit 1
+fi
+
+echo "YES"
+
+DIRECTORY=`echo $1 | sed -e 's/ /-/g' | tr [:upper:] [:lower:]`
+
+mkdir -p $DIRECTORY
+cd $DIRECTORY &>/dev/null
+(
+cat <<EOF
+#+TITLE:     $1
+#+AUTHOR:    Aaron Bedra
+#+EMAIL:     aaron@aaronbedra.com
+#+LANGUAGE:  en
+
+* First heading
+
+#+TAGS: slide(s)
+
+#+STYLE: <link rel="stylesheet" type="text/css" href="common.css" />
+#+STYLE: <link rel="stylesheet" type="text/css" href="screen.css" media="screen" />
+#+STYLE: <link rel="stylesheet" type="text/css" href="projection.css" media="projection" />
+#+STYLE: <link rel="stylesheet" type="text/css" href="presenter.css" media="presenter" />
+
+#+BEGIN_HTML
+<script type="text/javascript" src="org-html-slideshow.js"></script>
+#+END_HTML
+
+# Local Variables:
+# org-export-html-style-include-default: nil
+# org-export-html-style-include-scripts: nil
+# End:
+EOF
+) > $DIRECTORY.org
+
+cp $ORG_HTML_SLIDESHOW_HOME/production/org-html-slideshow.js .
+cp $ORG_HTML_SLIDESHOW_HOME/production/*.css .
+cd ..
+
+echo "Created new org-html-slideshow presentation in $DIRECTORY"
