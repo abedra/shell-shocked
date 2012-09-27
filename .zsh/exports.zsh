@@ -4,7 +4,7 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 export JDK_HOME=$(/usr/libexec/java_home)
 export CLOJURE_HOME=~/src/opensource/clojure
 export ORG_HTML_SLIDESHOW_HOME=/Users/abedra/src/opensource/org-html-slideshow
-export PATH=/usr/local/bin:$CLOJURESCRIPT_HOME/bin:~/src/opensource/cljs-watch:~/.cabal/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$CLOJURESCRIPT_HOME/bin:~/src/opensource/cljs-watch:~/.cabal/bin:$PATH
 
 # Setup terminal, and turn on colors
 export TERM=xterm-256color
