@@ -1,4 +1,0 @@
-#name : (defpage routeargs ...)
-# --
-(defpage ${1:route} 
-  $0)

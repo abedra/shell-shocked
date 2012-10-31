@@ -18,8 +18,5 @@ link_with_backup .railsrc
 link_with_backup .zsh
 link_with_backup .zshrc
 
-# emacs
-link_with_backup .emacs.d
-
 # tmux
 link_with_backup .tmux.conf

@@ -1,4 +1,0 @@
-#name : (cssfile path ...)
-# --
-(css-file "${1:path}" 
-  $0)
