@@ -1,24 +1,13 @@
-export CDPATH=.:~/src:~/src/personal:~/src/opensource:~/src/groupon:~/src/configs:~/Documents
+export CDPATH=.:~/src:~/src/personal:~/src/opensource:~/src/configs:~/Documents
 
-export JAVA_HOME=$(/usr/libexec/java_home)
-export JDK_HOME=$(/usr/libexec/java_home)
-export CLOJURE_HOME=~/src/opensource/clojure
-export ORG_HTML_SLIDESHOW_HOME=/Users/abedra/src/opensource/org-html-slideshow
-export PATH=/usr/local/bin:/usr/local/sbin:$CLOJURESCRIPT_HOME/bin:~/src/opensource/cljs-watch:~/.cabal/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
-# Setup terminal, and turn on colors
 export TERM=xterm-256color
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export CLICOLOR=1
 
-# Enable color in grep
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='3;33'
 
 export PAGER=most
 export EDITOR="emacs"
-
-export RUBY_HEAP_MIN_SLOTS=500000
-export RUBY_HEAP_SLOTS_INCREMENT=250000
-export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
-export RUBY_GC_MALLOC_LIMIT=50000000
