@@ -14,10 +14,6 @@ function zsh_recompile() {
   source ~/.zshrc
 }
 
-function crypted_truths {
-    /Applications/TrueCrypt.app/Contents/MacOS/TrueCrypt -t -k "" --protect-hidden=no ~/Documents/work ~/src/relevance
-}
-
 function clone_clojure_repo {
     git clone git@github.com:clojure/$1
 }
@@ -114,4 +110,8 @@ function fetch_twitter_bootstrap {
 
 function show_changes {
     git blame $1 | grep -v 00000000 | awk '{print $1}' | uniq | xargs git show
+}
+
+function genpw {
+    head /dev/urandom | uuencode -m - | sed -n 2p | cut -c1-${1:-10};
 }
