@@ -10,4 +10,6 @@ export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='3;33'
 
 export PAGER=most
-export EDITOR="emacs"
+export EDITOR="emacs -nw"
+
+export PKG_CONFIG_PATH=/usr/local/Library/ENV/pkgconfig/10.9
